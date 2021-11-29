@@ -6,13 +6,13 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 18:30:15 by shocquen          #+#    #+#             */
-/*   Updated: 2021/11/26 11:51:51 by shocquen         ###   ########.fr       */
+/*   Updated: 2021/11/29 14:29:01 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	unsigned int	nb;
 	int				sign;
