@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 18:31:10 by shocquen          #+#    #+#             */
-/*   Updated: 2021/11/29 12:42:33 by shocquen         ###   ########.fr       */
+/*   Updated: 2021/11/29 14:28:57 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ typedef struct s_list {
 	struct s_list	*next;
 }	t_list;
 
-size_t	ft_strlcat(char *restrictdst, const char *restrict src, size_t dstsize);
+size_t	ft_strlcat(char *dst, const char *src,
+			size_t dstsize);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 t_list	*ft_lstnew(void *content);
@@ -36,7 +37,7 @@ void	ft_lstadd_back(t_list **alst, t_list *new);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memset(void *b, int c, size_t len);
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
@@ -46,7 +47,7 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 int		ft_lstsize(t_list *lst);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
-int		ft_atoi(char *str);
+int		ft_atoi(const char *str);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
