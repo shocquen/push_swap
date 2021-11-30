@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:44:50 by shocquen          #+#    #+#             */
-/*   Updated: 2021/11/29 15:37:55 by shocquen         ###   ########.fr       */
+/*   Updated: 2021/11/30 10:46:50 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (ft_strlen(s) < start)
 		return (ft_strdup(""));
+	if (ft_strlen(s + start) < len)
+		len = ft_strlen(s + start);
 	ret = (char *)malloc(sizeof(*s) * (len + 1));
 	if (!ret)
 		return (NULL);
