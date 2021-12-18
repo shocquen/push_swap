@@ -6,16 +6,16 @@
 #    By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 09:28:22 by shocquen          #+#    #+#              #
-#    Updated: 2021/12/18 15:58:49 by shocquen         ###   ########.fr        #
+#    Updated: 2021/12/18 16:47:03 by shocquen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC =		gcc
 NAME =		libft.a
 
-BASE = $(wildcard base/*.c)
+BASE = $(wildcard utils/*.c)
 PRINTF = $(wildcard ft_printf/*.c)
-GNL = $(wildcard gnl/*.c)
+GNL = $(wildcard get_next_line/*.c)
 
 SRCS =	$(BASE) $(PRINTF) $(GNL)
 
