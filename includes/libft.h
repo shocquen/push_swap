@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 18:31:10 by shocquen          #+#    #+#             */
-/*   Updated: 2021/12/18 13:06:38 by shocquen         ###   ########.fr       */
+/*   Updated: 2021/12/18 16:00:53 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 
 # include "ft_printf.h"
+# include "get_next_line.h"
+
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
