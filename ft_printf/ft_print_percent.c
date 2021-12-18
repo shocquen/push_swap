@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_print_percent.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 12:02:00 by shocquen          #+#    #+#             */
-/*   Updated: 2021/11/26 14:33:48 by shocquen         ###   ########.fr       */
+/*   Created: 2021/12/09 10:04:17 by shocquen          #+#    #+#             */
+/*   Updated: 2021/12/18 12:34:40 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "libft.h"
 
-/* 
-	Applies the function f to each character of the
-	string passed as argument, and passing its index
-	as first argument.  Each character is passed by
-	address to f to be modified if necessary
-*/
-
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+int	ft_print_percent(va_list args)
 {
-	size_t	i;
+	char	c;
 
-	if (!s || !f)
-		return ;
-	i = 0;
-	while (*s)
-		(*f)(i++, s++);
+	(void)args;
+	c = '%';
+	ft_putchar_fd(c, 1);
+	return (1);
 }

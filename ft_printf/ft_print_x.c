@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_print_x.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/03 18:30:37 by shocquen          #+#    #+#             */
-/*   Updated: 2021/08/05 10:00:52 by shocquen         ###   ########.fr       */
+/*   Created: 2021/12/08 13:40:12 by shocquen          #+#    #+#             */
+/*   Updated: 2021/12/18 12:34:38 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "libft.h"
 
-/* Tests for any printing character, including space (` '). */
+/* Print a number in hexa and return the size of it */
 
-int	ft_isprint(int c)
+int	ft_print_x(va_list args)
 {
-	return (c >= 32 && c <= 126);
+	size_t	nbr;
+	size_t	size;
+
+	nbr = va_arg(args, size_t);
+	ft_putnbr_base((unsigned int)nbr, "0123456789abcdef");
+	size = ft_lennb_unsigned((unsigned int)nbr, 16);
+	return (size);
 }

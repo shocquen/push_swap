@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_print_s.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 11:46:21 by shocquen          #+#    #+#             */
-/*   Updated: 2021/11/29 12:23:59 by shocquen         ###   ########.fr       */
+/*   Created: 2021/12/07 14:47:29 by shocquen          #+#    #+#             */
+/*   Updated: 2021/12/18 12:36:24 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "libft.h"
 
-/* 
-	Adds the element ’new’ at the beginning of the
-	list.
-*/
-void	ft_lstadd_front(t_list **lst, t_list *new)
+/* Print a string and return len(str) or 0 */
+
+int	ft_print_s(va_list args)
 {
-	if (*lst)
-		new->next = *lst;
-	*lst = new;
+	char	*str;
+
+	str = va_arg(args, char *);
+	if (str == NULL)
+	{
+		return (ft_putstr_fd("(null)", 1));
+	}	
+	if (str)
+		return (ft_putstr_fd(str, 1));
+	return (0);
 }

@@ -1,24 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lennb.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 08:28:09 by shocquen          #+#    #+#             */
-/*   Updated: 2021/11/23 08:34:30 by shocquen         ###   ########.fr       */
+/*   Created: 2021/12/07 15:00:47 by shocquen          #+#    #+#             */
+/*   Updated: 2021/12/18 12:34:47 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+int	ft_lennb(int nb)
 {
-	void	*dest;
+	int	i;
 
-	dest = (void *)malloc(count * size);
-	if (!dest)
-		return (NULL);
-	ft_bzero(dest, count * size);
-	return (dest);
+	i = 0;
+	if (nb <= 0)
+	{
+		nb = -nb;
+		i++;
+	}
+	while (nb)
+	{
+		nb /= 10;
+		i++;
+	}
+	return (i);
+}
+
+int	ft_lennb_unsigned(unsigned long long int nb, int base)
+{
+	int	i;
+
+	i = 0;
+	if (nb == 0)
+		return (1);
+	while (nb)
+	{
+		nb = nb / base;
+		i++;
+	}
+	return (i);
 }

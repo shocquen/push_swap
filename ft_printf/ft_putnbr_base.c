@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 14:22:26 by shocquen          #+#    #+#             */
-/*   Updated: 2021/11/25 14:48:21 by shocquen         ###   ########.fr       */
+/*   Created: 2021/12/08 10:24:46 by shocquen          #+#    #+#             */
+/*   Updated: 2021/12/18 12:34:35 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "libft.h"
 
-/* 
-	Outputs the string ’s’ to the given file
-	descriptor.
-*/
-
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putnbr_base(size_t nbr, const char *base)
 {
-	if (fd < 0 || !s)
-		return ;
-	write(fd, s, ft_strlen(s));
+	unsigned long long int	a;
+	unsigned long long int	new_nbr;
+
+	a = ft_strlen(base);
+	new_nbr = (unsigned long long int)nbr;
+	if (new_nbr >= a)
+		ft_putnbr_base(new_nbr / a, base);
+	ft_putchar_fd(base[new_nbr % a], 1);
 }

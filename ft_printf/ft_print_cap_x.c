@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_print_cap_x.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 11:42:25 by shocquen          #+#    #+#             */
-/*   Updated: 2021/11/25 16:15:38 by shocquen         ###   ########.fr       */
+/*   Created: 2021/12/08 13:40:12 by shocquen          #+#    #+#             */
+/*   Updated: 2021/12/18 12:34:43 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "libft.h"
 
-/* 
-	Returns a pointer to the first occurrence
-	of the character c in the string s.
-*/
+/* Print a number in hexa and return the size of it */
 
-char	*ft_strchr(const char *s, int c)
+int	ft_print_cap_x(va_list args)
 {
-	while (*s && *s != (char)c)
-		++s;
-	if (*s == (char)c)
-		return ((char *)s);
-	return (NULL);
+	size_t	nbr;
+	size_t	size;
+
+	nbr = va_arg(args, size_t);
+	ft_putnbr_base((unsigned int)nbr, "0123456789ABCDEF");
+	size = ft_lennb_unsigned((unsigned int)nbr, 16);
+	return (size);
 }

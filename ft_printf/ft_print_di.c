@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_print_di.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/03 18:30:55 by shocquen          #+#    #+#             */
-/*   Updated: 2021/11/29 15:14:28 by shocquen         ###   ########.fr       */
+/*   Created: 2021/12/07 14:52:16 by shocquen          #+#    #+#             */
+/*   Updated: 2021/12/18 12:34:42 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "libft.h"
 
-/* compares not more than n characters. */
+/* Print decimal number and return nbr's size */
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_print_di(va_list args)
 {
-	if (n == 0)
-		return (n);
-	while ((*s1 || *s2) && (*s1 == *s2) && --n)
-	{
-		++s1;
-		++s2;
-	}
-	return (((unsigned char) *s1) - ((unsigned char) *s2));
+	int	nbr;
+
+	nbr = va_arg(args, int);
+	return (ft_putnbr_fd(nbr, 1));
 }
