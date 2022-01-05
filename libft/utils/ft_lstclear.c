@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 11:43:18 by shocquen          #+#    #+#             */
-/*   Updated: 2021/11/29 11:58:21 by shocquen         ###   ########.fr       */
+/*   Created: 2021/11/29 12:34:06 by shocquen          #+#    #+#             */
+/*   Updated: 2022/01/05 14:37:52 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* 
-	Allocates (with malloc(3)) and returns a new
-	element.  The variable ’content’ is initialized
-	with the value of the parameter ’content’.  The
-	variable ’next’ is initialized to NULL.
+/*
+	Deletes and frees the given element and every
+	successor of that element, using the function ’del’
+	and free(3).
+	Finally, the pointer to the list must be set to
+	NULL.
 */
 
-t_list	*ft_lstnew(void *content)
+void	ft_lstclear(t_list **lst)
 {
-	t_list	*ret;
+	t_list	*tmp;
 
-	ret = (t_list *)malloc(sizeof(t_list));
-	if (ret)
+	tmp = NULL;
+	while (*lst)
 	{
-		ret->content = content;
-		ret->next = NULL;
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst);
+		*lst = tmp;
 	}
-	return (ret);
+	*lst = NULL;
 }

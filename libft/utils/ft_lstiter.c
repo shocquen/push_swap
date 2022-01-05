@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 12:36:46 by shocquen          #+#    #+#             */
-/*   Updated: 2021/11/29 12:38:15 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/05 14:48:24 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 	’f’ to the content of each element.
 */
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(int))
 {
 	while (lst)
 	{

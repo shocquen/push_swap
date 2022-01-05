@@ -6,34 +6,33 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 18:31:10 by shocquen          #+#    #+#             */
-/*   Updated: 2021/12/18 16:00:53 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/05 15:00:56 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include "ft_printf.h"
-# include "get_next_line.h"
-
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
+/* ––––––––––– LIBFT ––––––––––– */
 typedef struct s_list {
-	void			*content;
+	int					content;
 	struct s_list	*next;
 }	t_list;
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-t_list	*ft_lstnew(void *content);
+t_list	*ft_lstnew(int content);
 t_list	*ft_lstlast(t_list *lst);
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
-void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstmap(t_list *lst, int (*f)(int));
+void	ft_lstdelone(t_list *lst);
+void	ft_lstclear(t_list **lst);
+void	ft_lstiter(t_list *lst, void (*f)(int));
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **alst, t_list *new);
 void	ft_bzero(void *s, size_t n);
@@ -68,5 +67,39 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
+/* ––––––––––– FT_PRINTF ––––––––––– */
+# ifndef FT_PRINTF_H
+#  define FT_PRINTF_H
+
+typedef struct s_handler {
+	int		(*f)(va_list data);
+	char	ctx;
+}	t_handler;
+
+void	ft_putnbr_base(size_t nbr, const char *base);
+int		ft_lennb(int nb);
+int		ft_lennb_unsigned(unsigned long long int nb, int base);
+int		ft_print_c(va_list args);
+int		ft_print_s(va_list args);
+int		ft_print_p(va_list args);
+int		ft_print_di(va_list args);
+int		ft_print_u(va_list args);
+int		ft_print_x(va_list args);
+int		ft_print_cap_x(va_list args);
+int		ft_print_percent(va_list args);
+int		ft_printf(const char *str, ...);
+# endif
+
+/* ––––––––––– GNL ––––––––––– */
+# ifndef GET_NEXT_LINE_H
+#  define GET_NEXT_LINE_H
+#  ifndef BUFFER_SIZE
+#   define BUFFER_SIZE 42
+#  endif
+int		ft_gnl_strchr(const char *str, char c);
+char	*get_next_line(int fd);
+char	*ft_gnl_strjoin(char *s1, char const *s2);
+# endif
 
 #endif

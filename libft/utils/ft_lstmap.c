@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 12:38:52 by shocquen          #+#    #+#             */
-/*   Updated: 2021/11/29 12:41:31 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/05 15:00:37 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 	delete the content of an element if needed.
 */
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, int (*f)(int))
 {
 	t_list	*new_lst;
 	t_list	*new;
@@ -33,7 +33,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		new = ft_lstnew((f)(lst->content));
 		if (!new)
 		{
-			ft_lstclear(&new_lst, del);
+			ft_lstclear(&new_lst);
 			return (NULL);
 		}
 		ft_lstadd_back(&new_lst, new);
