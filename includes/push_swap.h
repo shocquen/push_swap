@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 11:07:12 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/05 17:43:41 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/06 12:29:13 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 
 /* —————————— simple ——————————*/
 void	swap(t_list *s); /* sa, sb */
-void	push(t_list *s1, t_list *s2); /* pa, pb */
+void	push(t_list **s1, t_list **s2); /* pa, pb */
 void	rotate(t_list *s); /* ra, rb */
-void	rrotate(t_list *s); /* rra, rrb */
+void	rrotate(t_list **s); /* rra, rrb */
 
 /*—————————— double ——————————*/
 // void	dbl_swap(t_list s1, t_list s2); /* ss */

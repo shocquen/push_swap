@@ -20,26 +20,39 @@ int	main(void)
 
 	/* Print lst */
 	YELL("the stack");
+	ft_printf("a: ");
 	ft_lstiter(stack_a, &printcnt);
 
 	/* Swap test */
 	swap(stack_a);
 	/* Print lst */
 	YELL("sa");
+	ft_printf("a: ");
 	ft_lstiter(stack_a, &printcnt);
-
-/* 	YELL("del one");
-	stack_b = stack_a->next;
-	ft_lstdelone(stack_a);
-	stack_a = stack_b;
-	ft_lstiter(stack_a, &printcnt); */
-
 
 	/* Push b test */
  	YELL("pb");
-	push(stack_a, stack_b);
-/* 	ft_lstiter(stack_a, &printcnt);
-	ft_lstiter(stack_b, &printcnt); */
-	// ft_lstiter(stack_b, &printcnt, 'L');
-	// show_stacks(stack_a, stack_b);
+	push(&stack_a, &stack_b);
+	ft_printf("a: ");
+	ft_lstiter(stack_a, &printcnt);
+	ft_printf("\nb: ");
+	ft_lstiter(stack_b, &printcnt);
+
+	/* Rotate a test */
+	YELL("ra");
+	rotate(stack_a);
+	ft_printf("a: ");
+	ft_lstiter(stack_a, &printcnt);
+
+	/* Rotate b test */
+	YELL("rb");
+	rotate(stack_b);
+	ft_printf("b: ");
+	ft_lstiter(stack_b, &printcnt);
+
+	/* RRotate a test */
+	YELL("rra");
+	rrotate(&stack_a);
+	ft_printf("a: ");
+	ft_lstiter(stack_a, &printcnt);
 }
