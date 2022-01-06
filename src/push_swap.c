@@ -7,52 +7,51 @@ static void printcnt(int c)
 	ft_printf("> %d ", (char)c);
 }
 
-
-int	main(void)
+static void	show_error(char *s)
 {
+	write(0, s, ft_strlen(s));
+	write(0, "\n", 1);
+	exit(1);
+}
+
+static int	check(char *arg)
+{
+	int i;
+
+	i = -1;
+	while(arg[++i])
+		if (!ft_isdigit(arg[i]))
+			return (1);
+	return (0);
+}
+
+int	main(int argc, char **argv)
+{
+	int			i;
+	char		**args;
 	t_list	*stack_a;
 	t_list	*stack_b = NULL;
 
-	/* Init and set stacks */
-	stack_a= ft_lstnew(0);
-	for (int i = 1; i < 10; i++)
-		ft_lstadd_back(&stack_a, ft_lstnew(i));
+	if(argc < 2)
+		return (0);
 
-	/* Print lst */
-	YELL("the stack");
-	ft_printf("a: ");
-	ft_lstiter(stack_a, &printcnt);
-
-	/* Swap test */
-	swap(stack_a);
-	/* Print lst */
-	YELL("sa");
-	ft_printf("a: ");
-	ft_lstiter(stack_a, &printcnt);
-
-	/* Push b test */
- 	YELL("pb");
-	push(&stack_a, &stack_b);
-	ft_printf("a: ");
-	ft_lstiter(stack_a, &printcnt);
-	ft_printf("\nb: ");
-	ft_lstiter(stack_b, &printcnt);
-
-	/* Rotate a test */
-	YELL("ra");
-	rotate(stack_a);
-	ft_printf("a: ");
-	ft_lstiter(stack_a, &printcnt);
-
-	/* Rotate b test */
-	YELL("rb");
-	rotate(stack_b);
-	ft_printf("b: ");
-	ft_lstiter(stack_b, &printcnt);
-
-	/* RRotate a test */
-	YELL("rra");
-	rrotate(&stack_a);
-	ft_printf("a: ");
-	ft_lstiter(stack_a, &printcnt);
+	/* Init stack_a with arguments */
+	i = 0;
+	args = NULL;
+	if (argc == 2)
+	{
+		args = ft_split(argv[1], ' ');
+		i--;
+		while(args[++i])
+			if (!check(args[i]))
+				ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(args[i])));
+			else
+				show_error("Incorrect argument");
+	}
+	else
+	{
+		while(argc > ++i)
+			ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(argv[i])));
+	}
+	return (0);
 }
