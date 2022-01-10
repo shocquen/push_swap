@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 11:07:12 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/10 16:32:08 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/10 18:32:28 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 # include <libft.h>
 
 /* —————————— simple ——————————*/
-void	swap(t_list *s, int c); /* sa, sb */
-void	push(t_list **s1, t_list **s2, int c); /* pa, pb */
-void	rotate(t_list *s, int c); /* ra, rb */
-void	rrotate(t_list **s, int c); /* rra, rrb */
+int	swap(t_list *s, int c); /* sa, sb */
+int	push(t_list **s1, t_list **s2, int c); /* pa, pb */
+int	rotate(t_list *s, int c); /* ra, rb */
+int	rrotate(t_list **s, int c); /* rra, rrb */
 
 /*—————————— double ——————————*/
 // void	dbl_swap(t_list s1, t_list s2); /* ss */
@@ -35,7 +35,8 @@ int	check_d(char *str);
 int	is_sorted(t_list *s);
 
 /*—————————— Sort ——————————*/
-int	ps_sort(t_list **stack_a);
-void	ps_sort_3(t_list **s);
+int	ps_sort(t_list **stack_a, int c);
+int	ps_sort_3(t_list **s);
+int	ps_sort_5(t_list **s);
 
 #endif

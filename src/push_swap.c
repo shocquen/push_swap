@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 12:15:13 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/10 16:32:14 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/10 18:25:20 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	main(int argc, char **argv)
 	parse_str(argv, &stack_a, argc);
 	if (check_dbl(stack_a))
 		show_error(&stack_a, 1);
-	ps_sort(&stack_a);
+	ps_sort(&stack_a, 0);
 	// rrotate(&stack_a, 0);
 
 	/* TEST PART*/

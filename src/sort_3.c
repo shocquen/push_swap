@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 15:39:57 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/10 16:34:52 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/10 18:36:05 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	set_3(int *a, int *b, int *c, t_list *s)
 	*c = s->next->next->content;
 }
 
-void	ps_sort_3(t_list **s)
+int	ps_sort_3(t_list **s)
 {
 	int	a;
 	int	b;
@@ -42,4 +42,5 @@ void	ps_sort_3(t_list **s)
 	}
 	else
 		rotate((*s), 'a');
+	return (3);
 }

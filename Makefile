@@ -6,7 +6,7 @@
 #    By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 09:28:22 by shocquen          #+#    #+#              #
-#    Updated: 2022/01/10 15:40:59 by shocquen         ###   ########.fr        #
+#    Updated: 2022/01/10 17:03:35 by shocquen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,8 @@ SRCS		= actions.c \
 	push_swap.c \
 	checks.c \
 	sort.c \
-	sort_3.c
+	sort_3.c \
+	sort_5.c
 
 OBJS		= $(SRCS:.c=.o)
 
