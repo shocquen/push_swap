@@ -1,57 +1,75 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/10 12:15:13 by shocquen          #+#    #+#             */
+/*   Updated: 2022/01/10 16:32:14 by shocquen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-#define YELL(txt)		(ft_printf("\n–––––––––– %s ––––––––––\n", txt))
-
-static void printcnt(int c)
+static void	pcontent(int c)
 {
 	ft_printf("> %d ", (char)c);
 }
 
-static void	show_error(char *s)
+static void	show_error(t_list **l, int free)
 {
-	write(0, s, ft_strlen(s));
-	write(0, "\n", 1);
+	write(1, "Error\n", 6);
+	if (free == 1)
+		ft_lstclear(l);
 	exit(1);
 }
 
-static int	check(char *arg)
+static void	parse_str(char **argv, t_list	**stack, int argc)
 {
-	int i;
+	char	**args;
+	int			i;
 
-	i = -1;
-	while(arg[++i])
-		if (!ft_isdigit(arg[i]))
-			return (1);
-	return (0);
+	if (argc == 2)
+	{
+		args = ft_split(argv[1], ' ');
+		i = -1;
+		while (args[++i])
+		{
+			if (!check_d(args[i]))
+				ft_lstadd_back(stack, ft_lstnew(ft_atoi(args[i])));
+			else
+				show_error(stack, 1);
+		}
+	}
+	else
+	{
+		i = 0;
+		while (argc > ++i)
+			if (!check_d(argv[i]))
+				ft_lstadd_back(stack, ft_lstnew(ft_atoi(argv[i])));
+			else
+				show_error(stack, 1);
+	}
 }
 
 int	main(int argc, char **argv)
 {
-	int			i;
-	char		**args;
 	t_list	*stack_a;
-	t_list	*stack_b = NULL;
-
+	
 	if(argc < 2)
 		return (0);
+	parse_str(argv, &stack_a, argc);
+	if (check_dbl(stack_a))
+		show_error(&stack_a, 1);
+	ps_sort(&stack_a);
+	// rrotate(&stack_a, 0);
 
-	/* Init stack_a with arguments */
-	i = 0;
-	args = NULL;
-	if (argc == 2)
-	{
-		args = ft_split(argv[1], ' ');
-		i--;
-		while(args[++i])
-			if (!check(args[i]))
-				ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(args[i])));
-			else
-				show_error("Incorrect argument");
-	}
-	else
-	{
-		while(argc > ++i)
-			ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(argv[i])));
-	}
+	/* TEST PART*/
+	// if ()
+	ft_printf("\nstack_a: ");
+	ft_lstiter(stack_a, &pcontent);
+	ft_printf("\n");
+	ft_printf("sorted ? %s\n", is_sorted(stack_a) ? "Nope." : "YEAH!");
 	return (0);
 }
