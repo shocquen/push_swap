@@ -6,20 +6,20 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 12:15:13 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/10 18:25:20 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/10 19:54:06 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	pcontent(int c)
+/* static void	pcontent(int c)
 {
 	ft_printf("> %d ", (char)c);
-}
+} */
 
 static void	show_error(t_list **l, int free)
 {
-	write(1, "Error\n", 6);
+	write(STDERR_FILENO, "Error\n", 6);
 	if (free == 1)
 		ft_lstclear(l);
 	exit(1);
@@ -66,10 +66,9 @@ int	main(int argc, char **argv)
 	// rrotate(&stack_a, 0);
 
 	/* TEST PART*/
-	// if ()
-	ft_printf("\nstack_a: ");
-	ft_lstiter(stack_a, &pcontent);
-	ft_printf("\n");
-	ft_printf("sorted ? %s\n", is_sorted(stack_a) ? "Nope." : "YEAH!");
+	// ft_printf("\nstack_a: ");
+	// ft_lstiter(stack_a, &pcontent);
+	// ft_printf("\n");
+	// ft_printf("sorted ? %s\n", is_sorted(stack_a) ? "Nope." : "YEAH!");
 	return (0);
 }

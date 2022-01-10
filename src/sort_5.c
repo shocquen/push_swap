@@ -6,11 +6,16 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 17:02:47 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/10 18:47:30 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/10 19:47:04 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	pcontent(int c)
+{
+	ft_printf("> %d ", (char)c);
+}
 
 int	ps_sort_5(t_list **s)
 {
@@ -34,8 +39,18 @@ int	ps_sort_5(t_list **s)
 		ft_printf("sb\n");
 	push(&b, s, 'a');
 	ps_sort(s, 'a');	
+	// ft_printf("s: ");
+	// ft_lstiter(*s, &pcontent);
+	// ft_printf("\n");
+	// ft_printf("b: ");
+	// ft_lstiter(b, &pcontent);
+	// ft_printf("\n");
 	push(&b, s, 'a');
 	if (is_sorted((*s)))
 		swap((*s), 'a');
+
+	ft_printf("s: ");
+	ft_lstiter(*s, &pcontent);
+	ft_printf("\n");
 	return (5);
 }
