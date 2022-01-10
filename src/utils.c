@@ -1,23 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 12:15:58 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/10 22:34:08 by shocquen         ###   ########.fr       */
+/*   Created: 2022/01/10 22:08:57 by shocquen          #+#    #+#             */
+/*   Updated: 2022/01/10 22:45:04 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-/* Returns the last element of the list. */
-
-t_list	*ft_lstlast(t_list *lst)
+int	get_lowest(t_list *s)
 {
-	if (lst)
-		while (lst->next)
-			lst = lst->next;
-	return (lst);
+	int	i;
+	int	low;
+
+	i = -1;
+	low = s->content;
+	while (s)
+	{
+		s = s->next;
+		if (s)
+		{
+			if (low > s->content)
+				low = s->content;
+		}
+		i++;
+	}
+	return (i);
+}
+
+int	get_hiest(t_list *s)
+{
+	int	i;
+	int	low;
+
+	i = -1;
+	low = s->content;
+	while (s)
+	{
+		s = s->next;
+		if (s)
+		{
+			if (low < s->content)
+				low = s->content;
+		}
+		i++;
+	}
+	return (i);
 }

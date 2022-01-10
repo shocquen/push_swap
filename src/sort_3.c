@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 15:39:57 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/10 18:36:05 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/10 21:52:19 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ int	ps_sort_3(t_list **s)
 	}
 	else
 		rotate((*s), 'a');
-	return (3);
+	return (1);
 }

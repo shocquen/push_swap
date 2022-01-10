@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 12:15:13 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/10 19:54:06 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/10 23:05:34 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ int	main(int argc, char **argv)
 	if (check_dbl(stack_a))
 		show_error(&stack_a, 1);
 	ps_sort(&stack_a, 0);
-	// rrotate(&stack_a, 0);
-
+	
 	/* TEST PART*/
+	// ft_printf("lowst b: %d\n", get_lowest(stack_a));
 	// ft_printf("\nstack_a: ");
 	// ft_lstiter(stack_a, &pcontent);
 	// ft_printf("\n");
