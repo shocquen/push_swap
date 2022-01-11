@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 12:15:13 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/11 14:40:08 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/11 18:16:16 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ int	main(int argc, char **argv)
 	ps_sort(&stack_a, 0);
 	
 	/* TEST PART*/
-	ptest(stack_a, "\na: ");
-	ft_printf("sorted ? %s\n", is_sorted(stack_a) ? "Nope." : "YEAH!");
+	// ptest(stack_a, "\na: ");
+	// ft_printf("sorted ? %s\n", is_sorted(stack_a) ? "Nope." : "YEAH!");
 
 	ft_lstclear(&stack_a);
 	return (0);
