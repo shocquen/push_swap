@@ -6,16 +6,11 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 12:15:13 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/10 23:05:34 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/11 14:40:08 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/* static void	pcontent(int c)
-{
-	ft_printf("> %d ", (char)c);
-} */
 
 static void	show_error(t_list **l, int free)
 {
@@ -65,10 +60,9 @@ int	main(int argc, char **argv)
 	ps_sort(&stack_a, 0);
 	
 	/* TEST PART*/
-	// ft_printf("lowst b: %d\n", get_lowest(stack_a));
-	// ft_printf("\nstack_a: ");
-	// ft_lstiter(stack_a, &pcontent);
-	// ft_printf("\n");
-	// ft_printf("sorted ? %s\n", is_sorted(stack_a) ? "Nope." : "YEAH!");
+	ptest(stack_a, "\na: ");
+	ft_printf("sorted ? %s\n", is_sorted(stack_a) ? "Nope." : "YEAH!");
+
+	ft_lstclear(&stack_a);
 	return (0);
 }
