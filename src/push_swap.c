@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 12:15:13 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/12 11:26:20 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/12 16:42:38 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	
+	stack_a = NULL;
 	if(argc < 1)
 		return (0);
 	parse_str(argv, &stack_a, argc);
