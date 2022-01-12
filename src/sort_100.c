@@ -6,25 +6,46 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 10:29:58 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/12 10:31:10 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/12 19:02:54 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Return the adress of lightest node */
+static t_list	**get_lightest(t_list *a)
+{
+	t_list	**ret;
+	int				i;
+
+	i = 0;
+	while (i < 5)
+	{
+		// check 0, chunk
+	}
+}
+
 int	ps_sort_100(t_list **a, t_list **b)
 {
-	int		c[2];
 
-	*(long *)c = 0;
-	push(a, b, 'b');
-	push(a, b, 'b');
-	ps_sort(a, 'a');
-	// ptest((*a), "a: ");
-	// ptest((*b), "b: ");
-	push(b, a, 'a');
-	if (!get_hiest(*a))
-		rotate((*a), 'a');
-	push(b, a, 'a');
-	return (1);
 }
+
+/* 
+
+	int nb[1]
+\	*(long *)nb = 0;
+	int median = list_size / 2
+
+	chunk_0 = => 0 && < 20
+	chunk_1 = => 20 && < 40
+	chunk_2 = => 40 && < 60
+	chunk_3 = => 60 && < 80
+	chunk_4 = => 80 && < 100
+
+	nb[0]
+*/
+
+// ToDo
+/* 
+
+*/

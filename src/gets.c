@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   gets.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 22:08:57 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/11 14:31:35 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/12 18:55:08 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,4 +101,20 @@ int	get_value(t_list *s, int i)
 		s = s->next;
 	}
 	return (-1);
+}
+
+/* 
+	Get the nb of moves needed to get a node at the top of the list
+*/
+
+int	get_weigth(t_list *s, int i)
+{
+	int	median;
+	int	size;
+
+	size = ft_lstsize(s);
+	median = size / 2;
+	if (i <= median)
+		return (i);
+	return (size - i);
 }
