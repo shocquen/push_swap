@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 11:07:12 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/11 14:35:14 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/12 10:29:44 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	ps_sort(t_list **stack_a, int c);
 int	ps_sort_3(t_list **s);
 int	ps_sort_4(t_list **a, t_list **b);
 int	ps_sort_5(t_list **a, t_list **b);
+int	ps_sort_100(t_list **a, t_list **b);
 
 /*—————————— Sort ——————————*/
 int	get_lowest(t_list *s);

@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 12:15:13 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/11 18:16:16 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/12 11:26:20 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	parse_str(char **argv, t_list	**stack, int argc)
 	char	**args;
 	int			i;
 
-	if (argc == 2)
+	if (argc == 1)
 	{
 		args = ft_split(argv[1], ' ');
 		i = -1;
@@ -42,7 +42,10 @@ static void	parse_str(char **argv, t_list	**stack, int argc)
 		i = 0;
 		while (argc > ++i)
 			if (!check_d(argv[i]))
-				ft_lstadd_back(stack, ft_lstnew(ft_atoi(argv[i])));
+				if  (!ft_strlen(argv[i]))
+					show_error(stack, 1);
+				else
+					ft_lstadd_back(stack, ft_lstnew(ft_atoi(argv[i])));
 			else
 				show_error(stack, 1);
 	}
@@ -52,7 +55,7 @@ int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	
-	if(argc < 2)
+	if(argc < 1)
 		return (0);
 	parse_str(argv, &stack_a, argc);
 	if (check_dbl(stack_a))

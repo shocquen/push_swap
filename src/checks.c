@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 12:20:12 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/10 15:05:03 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/12 11:53:51 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,14 @@ int	check_d(char *str)
 
 	i = -1;
 	while (str[++i])
-		if (!ft_isdigit(str[i]))
+		if (!ft_isdigit(str[i]) && str[i] != '-')
 			return (1);
+	if (str[0] == '-')
+		i--;
+	if (i >= 11)
+		return (1);
+	if (!ft_strncmp(str, "-2147483649", 11) || !ft_strncmp(str, "2147483648", 10))
+		return (1);
 	return (0);
 }
 
