@@ -1,49 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_100.c                                         :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 10:29:58 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/14 12:47:17 by shocquen         ###   ########.fr       */
+/*   Created: 2022/01/17 17:10:57 by shocquen          #+#    #+#             */
+/*   Updated: 2022/01/17 17:25:11 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* Return the adress of lightest node */
-/* static t_list	**get_lightest(t_list *a, int min, int max)
+int	main(int argc, char **argv)
 {
-	t_list	**ret;
-	int				i;
+	char	*ret;
 
-	
-} */
-
-int	ps_sort_100(t_list **a, t_list **b)
-{
-	(void)a;
-	(void)b;
-	return(0);
+	(void)argv;
+	if (argc == 1)
+	{
+		ret = get_next_line(0);
+		ft_printf("%s", ret);
+		while (ret)
+		{
+			ft_printf("%s", ret);
+			ret = get_next_line(0);
+		}
+	}
+	ft_printf("\n");
+	return (0);
 }
-
-/* 
-
-	int nb[1]
-\	*(long *)nb = 0;
-	int median = list_size / 2
-
-	chunk_0 = => 0 && < 20
-	chunk_1 = => 20 && < 40
-	chunk_2 = => 40 && < 60
-	chunk_3 = => 60 && < 80
-	chunk_4 = => 80 && < 100
-
-	nb[0]
-*/
-
-// ToDo
-/* 
-
-*/

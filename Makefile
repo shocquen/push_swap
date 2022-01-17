@@ -6,9 +6,43 @@
 #    By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 09:28:22 by shocquen          #+#    #+#              #
-#    Updated: 2022/01/12 18:55:15 by shocquen         ###   ########.fr        #
+#    Updated: 2022/01/17 17:49:39 by shocquen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+define sign
+	@clear
+	@tput setaf 1
+	@tput bold
+
+	@sleep .1
+	@echo "$(shell tput cup 0 0)..%%%%...%%..%%...%%%%....%%%%....%%%%%...%%%%...%%%%%%..%%..%%."	
+	@sleep .2
+
+	@echo "$(shell tput cup 0 0).....%%..%%..%%..%%..%%..%%..%%..%%..%%..%%..%%..%%......%%..%%."
+	@echo "$(shell tput cup 1 0)..%%%%...%%..%%...%%%%....%%%%....%%%%%...%%%%...%%%%%%..%%..%%."	
+	@sleep .15
+
+	@echo "$(shell tput cup 0 0)..%%%%...%%%%%%..%%..%%..%%......%%.%%%..%%..%%..%%%%....%%.%%%."
+	@echo "$(shell tput cup 1 0).....%%..%%..%%..%%..%%..%%..%%..%%..%%..%%..%%..%%......%%..%%."
+	@echo "$(shell tput cup 2 0)..%%%%...%%..%%...%%%%....%%%%....%%%%%...%%%%...%%%%%%..%%..%%."	
+	@sleep .2
+
+	@echo "$(shell tput cup 0 0).%%......%%..%%..%%..%%..%%..%%..%%..%%..%%..%%..%%......%%%.%%."
+	@echo "$(shell tput cup 1 0)..%%%%...%%%%%%..%%..%%..%%......%%.%%%..%%..%%..%%%%....%%.%%%."
+	@echo "$(shell tput cup 2 0).....%%..%%..%%..%%..%%..%%..%%..%%..%%..%%..%%..%%......%%..%%."
+	@echo "$(shell tput cup 3 0)..%%%%...%%..%%...%%%%....%%%%....%%%%%...%%%%...%%%%%%..%%..%%."	
+	@sleep .2
+
+	@echo "$(shell tput cup 0 0)..%%%%...%%..%%...%%%%....%%%%....%%%%...%%..%%..%%%%%%..%%..%%."
+	@echo "$(shell tput cup 1 0).%%......%%..%%..%%..%%..%%..%%..%%..%%..%%..%%..%%......%%%.%%."
+	@echo "$(shell tput cup 2 0)..%%%%...%%%%%%..%%..%%..%%......%%.%%%..%%..%%..%%%%....%%.%%%."
+	@echo "$(shell tput cup 3 0).....%%..%%..%%..%%..%%..%%..%%..%%..%%..%%..%%..%%......%%..%%."
+	@echo "$(shell tput cup 4 0)..%%%%...%%..%%...%%%%....%%%%....%%%%%...%%%%...%%%%%%..%%..%%."	
+	@sleep .1
+
+	@tput sgr0
+endef
 
 define building
 	@echo "$(shell tput setaf 6)Building $1 $(shell tput sgr0)\c"
@@ -61,16 +95,17 @@ RM			= rm -f
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
 
-${NAME}:	$(addprefix obj/, $(OBJS))
+${NAME}:	signe $(addprefix obj/, $(OBJS))
 			$(call building,libft)
 			$(call finishing,$(NAME))
+			@echo "Use $(shell tput setaf 7)./push_swap <args...>$(shell tput sgr0)"
 
 obj/%.o: src/%.c
 			@mkdir -p $(@D)
 			$(call compiling,$<,$@,0)
 
 
-all:		$(NAME)
+all:	 $(NAME)
 
 clean:	
 			$(call cleaning,libft,clean)
@@ -81,5 +116,9 @@ fclean:		clean
 			$(call removing,$(NAME))
 
 re:			fclean all
+
+signe:
+			$(call sign)
+			@echo
 
 .PHONY : 	all clean fclean re
