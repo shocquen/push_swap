@@ -6,7 +6,7 @@
 #    By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 09:28:22 by shocquen          #+#    #+#              #
-#    Updated: 2022/01/17 17:49:39 by shocquen         ###   ########.fr        #
+#    Updated: 2022/01/18 18:15:42 by shocquen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,6 +82,7 @@ SRCS		= actions.c \
 	sort_5.c \
 	sort_4.c \
 	sort_100.c \
+	show.c \
 	gets.c
 
 OBJS		= $(SRCS:.c=.o)
@@ -105,7 +106,7 @@ obj/%.o: src/%.c
 			$(call compiling,$<,$@,0)
 
 
-all:	 $(NAME)
+all:	$(NAME)
 
 clean:	
 			$(call cleaning,libft,clean)
@@ -121,4 +122,4 @@ signe:
 			$(call sign)
 			@echo
 
-.PHONY : 	all clean fclean re
+.PHONY : 	all clean fclean re signe

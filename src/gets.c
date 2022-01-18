@@ -6,26 +6,11 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 22:08:57 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/12 18:55:08 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/18 18:15:02 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
-/* TESTS FUNCTIONS */
-
-static void	pcontent(int c)
-{
-	ft_printf("> %d ", (char)c);
-}
-
-void	ptest(t_list *s, char *str)
-{
-	ft_printf("%s", str);
-	ft_lstiter(s, &pcontent);
-	ft_printf("\n");
-}
 
 /* 
 	Get the index of the lowest nb

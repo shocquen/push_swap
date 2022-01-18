@@ -6,13 +6,13 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 12:15:08 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/10 18:38:19 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/18 17:36:30 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	swap(t_list *s, int c)
+int	swap(t_list *s, t_list **actions, int c)
 {
 	int	tmp;
 
@@ -22,14 +22,12 @@ int	swap(t_list *s, int c)
 		s->content = s->next->content;
 		s->next->content = tmp;
 	}
-	if (c == 'a' || c == 'b')
-	{
-		ft_printf("s%c\n", (char)c);
-	}
+	if (c != 0)
+		ft_lstadd_back(actions, ft_lstnew(c * SWAP));
 	return (1);
 }
 
-int	push(t_list **s1, t_list **s2, int c)
+int	push(t_list **s1, t_list **s2, t_list **actions, int c)
 {
 	t_list	*tmp_a;
 
@@ -41,24 +39,21 @@ int	push(t_list **s1, t_list **s2, int c)
 		ft_lstdelone(*s1);
 		*s1 = tmp_a;
 	}
-	if (c == 'a' || c == 'b')
-	{
-		ft_printf("p%c\n", (char)c);
-	}
+	if (c != 0)
+		ft_lstadd_back(actions, ft_lstnew(c * PUSH));
+
 	return (1);
 }
 
-int	rotate(t_list *s, int c)
+int	rotate(t_list *s, t_list **actions, int c)
 {
 	while (s)
 	{
-		swap(s, 0);
+		swap(s, actions, 0);
 		s = s->next;
 	}
-	if (c == 'a' || c == 'b')
-	{
-		ft_printf("r%c\n", (char)c);
-	}
+	if (c != 0)
+		ft_lstadd_back(actions, ft_lstnew(c * ROTATE));
 	return (1);
 }
 
@@ -76,15 +71,13 @@ static int	pop(t_list **s)
 	return (ret);
 }
 
-int	rrotate(t_list **s, int c)
+int	rrotate(t_list **s, t_list **actions, int c)
 {
 	int	tmp;
 
 	tmp = pop(s);
 	ft_lstadd_front(s, ft_lstnew(tmp));
-	if (c == 'a' || c == 'b')
-	{
-		ft_printf("rr%c\n", (char)c);
-	}
+	if (c != 0)
+		ft_lstadd_back(actions, ft_lstnew(c * RROTATE));
 	return (1);
 }

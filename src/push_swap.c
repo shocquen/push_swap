@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 12:15:13 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/18 12:00:30 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/18 18:16:51 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,19 @@ static void	parse_str(char **argv, t_list	**stack, int argc)
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
+	t_list	*actions;
 	
 	stack_a = NULL;
+	actions = NULL;
 	if(argc < 1)
 		return (0);
 	parse_str(argv, &stack_a, argc);
 	if (check_dbl(stack_a))
 		show_error(&stack_a, 1);
-	ps_sort(&stack_a, 0);
+	ps_sort(&stack_a, &actions, 1);
 	
 	/* TEST PART*/
-	// ft_printf("test: %d", get_lightest(stack_a, 2, 4));
+	pactions(actions);
 	// ptest(stack_a, "\na: ");
 	// ft_printf("sorted ? %s\n", is_sorted(stack_a) ? "Nope." : "YEAH!");
 
