@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 14:38:10 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/18 17:49:55 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/19 14:06:29 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ps_sort(t_list **s, t_list **actions, int c)
 		i = ps_sort_4(s, &b, actions);
 	else if (size == 5)
 		i = ps_sort_5(s, &b, actions);
-	else if  (size <= 100)
+	else
 		i = ps_sort_100(s, &b, actions);
 	ft_lstclear(&b);
 	return (i);
