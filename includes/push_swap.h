@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 11:07:12 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/18 18:03:23 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/19 10:21:56 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	rrotate(t_list **s, t_list **actions, int c); /* rra, rrb */
 
 /*—————————— test ——————————*/
 void	ptest(t_list *s, char *str);
-void	pactions(t_list *actions);
+void	pactions(t_list **actions);
 
 /*—————————— Checks ——————————*/
 int	check_dbl(t_list *s);
