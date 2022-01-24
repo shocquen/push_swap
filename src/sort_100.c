@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 10:29:58 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/18 17:41:37 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:49:05 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@
 	push(a, b, 'b');
 } */
 
-static void	push_lowest(t_list **a, t_list **b, t_list **actions)
+/* static void	push_lowest(t_list **a, t_list **b, t_list **actions)
 {
 	int	size;
 
@@ -102,26 +102,48 @@ int	ps_sort_100(t_list **a, t_list **b, t_list **actions)
 	while (*a)
 		push_lowest(a, b, actions);
 	while (*b)
-		push(b, a, actions, 1);
+		push(b, a, actions, 0);
+	ptest((*a), "\na: ");
+	return(0);
+} */
+
+/* int	ps_sort_100(t_list **a, t_list **b, t_list **actions)
+{
+	(void)b;
+	(void)actions;
+	int i = 0;
+	while (i++ < 6)
+	{
+		ft_printf("index of %d is %d\n", (*a)->content, (*a)->index);
+		rotate((*a), actions, 0);
+	}
+	return (0);
+} */
+
+int	ps_sort_100(t_list **a, t_list **b, t_list **actions)
+{
+	int	size;
+	int	i;
+	int	j;
+	int	n;
+
+	size = ft_lstsize(*a);
+	i = 0;
+	while (is_sorted(*a))
+	{
+		j = -1;
+		while (++j < size)
+		{
+			// ptest((*a), "\na: ");
+			n = (*a)->index;
+			if ((n >> i) & 1)
+				rotate((*a), actions, 1);
+			else
+				push(a, b, actions, -1);
+		}
+		while(*b)
+			push(b, a, actions, 1);
+		++i;
+	}
 	return(0);
 }
-
-/* 
-
-	int nb[1]
-\	*(long *)nb = 0;
-	int median = list_size / 2
-
-	chunk_0 = => 0 && < 20
-	chunk_1 = => 20 && < 40
-	chunk_2 = => 40 && < 60
-	chunk_3 = => 60 && < 80
-	chunk_4 = => 80 && < 100
-
-	nb[0]
-*/
-
-// ToDo
-/* 
-
-*/

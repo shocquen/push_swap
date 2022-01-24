@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 12:38:52 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/05 15:00:37 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:37:48 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_list	*ft_lstmap(t_list *lst, int (*f)(int))
 	new_lst = NULL;
 	while (lst)
 	{
-		new = ft_lstnew((f)(lst->content));
+		new = ft_lstnew((f)(lst->content), lst->index);
 		if (!new)
 		{
 			ft_lstclear(&new_lst);

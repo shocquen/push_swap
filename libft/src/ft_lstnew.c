@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 11:43:18 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/17 17:55:03 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:36:55 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 	variable ’next’ is initialized to NULL.
 */
 
-t_list	*ft_lstnew(int content)
+t_list	*ft_lstnew(int content, int index)
 {
 	t_list	*ret;
 
@@ -27,6 +27,7 @@ t_list	*ft_lstnew(int content)
 	if (ret)
 	{
 		ret->content = content;
+		ret->index = index;
 		ret->next = NULL;
 	}
 	return (ret);

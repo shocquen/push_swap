@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 18:31:10 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/17 17:54:59 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:37:25 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@
 /* ––––––––––– LIBFT ––––––––––– */
 typedef struct s_list {
 	int					content;
+	int					index;
 	struct s_list	*next;
 }	t_list;
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-t_list	*ft_lstnew(int content);
+t_list	*ft_lstnew(int content, int index);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, int (*f)(int));
 void	ft_lstdelone(t_list *lst);

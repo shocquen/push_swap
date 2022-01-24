@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 12:15:08 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/18 17:36:30 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:46:43 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,20 @@
 
 int	swap(t_list *s, t_list **actions, int c)
 {
-	int	tmp;
+	int	tmp_c;
+	int	tmp_i;
 
 	if (s && s->next)
 	{
-		tmp = s->content;
+		tmp_c = s->content;
+		tmp_i = s->index;
 		s->content = s->next->content;
-		s->next->content = tmp;
+		s->index = s->next->index;
+		s->next->content = tmp_c;
+		s->next->index = tmp_i;
 	}
 	if (c != 0)
-		ft_lstadd_back(actions, ft_lstnew(c * SWAP));
+		ft_lstadd_back(actions, ft_lstnew(c * SWAP, -1));
 	return (1);
 }
 
@@ -34,13 +38,13 @@ int	push(t_list **s1, t_list **s2, t_list **actions, int c)
 	if (s1)
 	{
 		if (s2)
-			ft_lstadd_front(s2, ft_lstnew((*s1)->content));
+			ft_lstadd_front(s2, ft_lstnew((*s1)->content, (*s1)->index));
 		tmp_a = (*s1)->next;
 		ft_lstdelone(*s1);
 		*s1 = tmp_a;
 	}
 	if (c != 0)
-		ft_lstadd_back(actions, ft_lstnew(c * PUSH));
+		ft_lstadd_back(actions, ft_lstnew(c * PUSH, -1));
 
 	return (1);
 }
@@ -53,19 +57,20 @@ int	rotate(t_list *s, t_list **actions, int c)
 		s = s->next;
 	}
 	if (c != 0)
-		ft_lstadd_back(actions, ft_lstnew(c * ROTATE));
+		ft_lstadd_back(actions, ft_lstnew(c * ROTATE, -1));
 	return (1);
 }
 
-static int	pop(t_list **s)
+static t_list	*pop(t_list **s)
 {
-	int		ret;
+	t_list	*ret;
 	t_list	*tmp;
 
 	tmp = (*s);
+	ret = NULL;
 	while (tmp && tmp->next->next)
 		tmp = tmp->next;
-	ret = tmp->next->content;
+	ft_lstnew(tmp->next->content, tmp->next->index);
 	ft_lstdelone(tmp->next);
 	tmp->next = NULL;
 	return (ret);
@@ -73,11 +78,11 @@ static int	pop(t_list **s)
 
 int	rrotate(t_list **s, t_list **actions, int c)
 {
-	int	tmp;
+	t_list	*tmp;
 
 	tmp = pop(s);
-	ft_lstadd_front(s, ft_lstnew(tmp));
+	ft_lstadd_front(s, tmp);
 	if (c != 0)
-		ft_lstadd_back(actions, ft_lstnew(c * RROTATE));
+		ft_lstadd_back(actions, ft_lstnew(c * RROTATE, -1));
 	return (1);
 }
