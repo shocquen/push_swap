@@ -6,7 +6,7 @@
 #    By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 09:28:22 by shocquen          #+#    #+#              #
-#    Updated: 2022/01/19 11:53:38 by shocquen         ###   ########.fr        #
+#    Updated: 2022/01/25 11:26:56 by shocquen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,7 +94,7 @@ LIBS	=	./libft/libft.a
 NAME		= push_swap
 RM			= rm -f
 CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -g
 
 ${NAME}:	signe $(addprefix obj/, $(OBJS))
 			$(call building,libft)

@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 12:15:08 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/24 17:46:43 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/25 11:32:08 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,18 @@ int	swap(t_list *s, t_list **actions, int c)
 
 int	push(t_list **s1, t_list **s2, t_list **actions, int c)
 {
-	t_list	*tmp_a;
+	t_list	*tmp;
 
 	if (s1)
 	{
+		tmp = (*s1)->next;
 		if (s2)
 			ft_lstadd_front(s2, ft_lstnew((*s1)->content, (*s1)->index));
-		tmp_a = (*s1)->next;
 		ft_lstdelone(*s1);
-		*s1 = tmp_a;
+		*s1 = tmp;
 	}
 	if (c != 0)
 		ft_lstadd_back(actions, ft_lstnew(c * PUSH, -1));
-
 	return (1);
 }
 
@@ -70,7 +69,7 @@ static t_list	*pop(t_list **s)
 	ret = NULL;
 	while (tmp && tmp->next->next)
 		tmp = tmp->next;
-	ft_lstnew(tmp->next->content, tmp->next->index);
+	ret = ft_lstnew(tmp->next->content, tmp->next->index);
 	ft_lstdelone(tmp->next);
 	tmp->next = NULL;
 	return (ret);

@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 18:15:07 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/24 17:52:00 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/25 11:54:12 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,11 @@ static void pa_filter(t_list **actions, t_list **ret)
 }
 static t_list	*actions_filter(t_list *actions)
 {
-	t_list *ret;
+	t_list	*ret;
+	t_list	*tmp;
 
 	ret = NULL;
+	tmp = actions;
 	while(actions)
 	{ 
 		if (actions->content == (PUSH * -1))
@@ -72,8 +74,9 @@ static t_list	*actions_filter(t_list *actions)
 			ft_lstadd_back(&ret, ft_lstnew(actions->content, -1));
 			actions = actions->next;
 		}
-		// pb_filter(actions, ret);
 	}
+	actions = tmp;
+	ft_lstclear(&actions);
 	return (ret);
 }
 
@@ -103,4 +106,12 @@ void	pactions(t_list **actions)
 {
 	*actions = actions_filter(*actions);
 	ft_lstiter((*actions), &which_action);
+}
+
+void	show_error(t_list **l, int free)
+{
+	write(STDERR_FILENO, "Error\n", 6);
+	if (free == 1)
+		ft_lstclear(l);
+	exit(1);
 }

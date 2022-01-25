@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 11:57:40 by shocquen          #+#    #+#             */
-/*   Updated: 2021/11/29 11:59:13 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/25 11:41:41 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ void	ft_lstadd_back(t_list **alst, t_list *new)
 		*alst = new;
 	else
 	{
-		while (tmp->next)
-			tmp = tmp->next;
+		tmp = ft_lstlast(*(alst));
 		tmp->next = new;
 	}
 }
