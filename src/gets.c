@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 22:08:57 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/25 10:12:30 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/25 12:15:06 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,14 +108,12 @@ int	get_weigth(t_list *s, int i)
 int	get_index(t_list *lst, t_list *node)
 {
 	t_list	*tmp;
-	int			ret;
+	int		ret;
 
 	tmp = lst;
 	ret = 0;
 	while (lst && lst->content != node->content)
 		lst = lst->next;
-	// if (!lst)
-	// 	return (ret);
 	while (tmp)
 	{
 		if (lst->content > tmp->content)

@@ -6,45 +6,24 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 18:15:07 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/25 11:54:12 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/25 13:20:23 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* TESTS FUNCTIONS */
-
-static void	pcontent(int c)
-{
-	ft_printf("> %d ", (char)c);
-}
-
-void	ptest(t_list *s, char *str)
-{
-	ft_printf("%s", str);
-	ft_lstiter(s, &pcontent);
-	ft_printf("\n");
-}
-
 /* Know which actions where dones */
-
-static void pa_filter(t_list **actions, t_list **ret)
+static void	pa_filter(t_list **actions, t_list **ret)
 {
 	int	i;
 	int	j;
 
-	i = 0;
-	while((*actions) && (*actions)->content == (PUSH * -1))
-	{
-		i++;
+	i = -1;
+	while ((*actions) && (*actions)->content == (PUSH * -1) && ++i >= 0)
 		*actions = (*actions)->next;
-	}
-	j = 0;
-	while((*actions) && (*actions)->content == PUSH)
-	{
-		j++;
+	j = -1;
+	while ((*actions) && (*actions)->content == PUSH && ++j >= 0)
 		*actions = (*actions)->next;
-	}
 	(void)ret;
 	i = i - j;
 	if (i < 0)
@@ -56,8 +35,8 @@ static void pa_filter(t_list **actions, t_list **ret)
 		j = -PUSH;
 	while (i--)
 		ft_lstadd_back(ret, ft_lstnew(j, -1));
-	
 }
+
 static t_list	*actions_filter(t_list *actions)
 {
 	t_list	*ret;
@@ -65,8 +44,8 @@ static t_list	*actions_filter(t_list *actions)
 
 	ret = NULL;
 	tmp = actions;
-	while(actions)
-	{ 
+	while (actions)
+	{
 		if (actions->content == (PUSH * -1))
 			pa_filter(&actions, &ret);
 		else
@@ -80,9 +59,9 @@ static t_list	*actions_filter(t_list *actions)
 	return (ret);
 }
 
-static void which_action(int a)
+static void	which_action(int a)
 {
-	char c;
+	char	c;
 
 	if (a > 0)
 		c = 'a';

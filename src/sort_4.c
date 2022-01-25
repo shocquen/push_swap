@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 12:57:38 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/25 11:34:40 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/25 12:16:35 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	lowest_to_top(t_list **a, t_list **b, t_list **actions)
 {
-	int i;
+	int	i;
 
 	i = get_lowest((*a));
 	if (i == 0)

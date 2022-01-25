@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 18:31:10 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/24 17:37:25 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/25 12:12:28 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 
 /* ––––––––––– LIBFT ––––––––––– */
 typedef struct s_list {
-	int					content;
-	int					index;
+	int				content;
+	int				index;
 	struct s_list	*next;
 }	t_list;
 
@@ -97,10 +97,11 @@ int		ft_printf(const char *str, ...);
 #  define GET_NEXT_LINE_H
 #  ifndef BUFFER_SIZE
 #   define BUFFER_SIZE 42
-#  endif
+
 int		ft_gnl_strchr(const char *str, char c);
 char	*get_next_line(int fd);
 char	*ft_gnl_strjoin(char *s1, char const *s2);
+#  endif
 # endif
 
 #endif

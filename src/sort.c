@@ -6,18 +6,17 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 14:38:10 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/25 10:26:53 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/25 12:16:57 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-#include <stdio.h>
 int	ps_sort(t_list **s, t_list **actions, int c)
 {
 	t_list	*b;
-	int			i;
-	int 		size;
+	int		i;
+	int		size;
 
 	i = 0;
 	b = NULL;
